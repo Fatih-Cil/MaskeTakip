@@ -44,7 +44,7 @@ namespace Workaround
             person1.LastName = "ÇİL";
             person1.DateOfBirthYear = 1900;
 
-            Person person2 = new Person { FirstName = "Ayşe" };
+            Person person2 = new Person {NationalIdentity=1,FirstName = "JOE",LastName="BIDEN",DateOfBirthYear=1942};
 
             foreach (string sehir in sehirler1)
             { 
@@ -63,6 +63,8 @@ namespace Workaround
             PttManager pttManager = new PttManager(new PersonManager());
             pttManager.GiveMask(person1);
 
+            PttManager pttManager2 = new PttManager(new ForeignerManager());
+            pttManager.GiveMask(person2);
         }
 
 

@@ -17,7 +17,7 @@ namespace Business.Concrete
 
         public bool CheckPerson(Person person)
         {
-            throw new NotImplementedException();
+            return false;
         }
 
         public List<Person> GetList()
