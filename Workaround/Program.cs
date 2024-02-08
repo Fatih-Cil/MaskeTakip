@@ -1,5 +1,7 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
+using Business.Concrete;
+using Entities.Concrete;
 using System.Runtime.CompilerServices;
 namespace Workaround
 {
@@ -15,6 +17,51 @@ namespace Workaround
             int sonuc = Topla(4,3);
             Console.WriteLine("Toplam:"+sonuc);
 
+            string[] ogrenciler = new string[3];
+            ogrenciler[0] = "Fatih";
+            ogrenciler[1] = "Mehmet";
+            ogrenciler[2] = "Ali";
+            //ogrenciler[3]="Veli";
+
+            
+            ogrenciler=new string[4];
+            ogrenciler[3] = "Ahmet";
+            for (int i = 0; i < ogrenciler.Length; i++)
+            {
+                Console.WriteLine(ogrenciler[i]);
+            }
+
+            string[] sehirler1 = new[] { "Ankara", "İstanbul", "İzmir" };
+            string[] sehirler2 = new[] { "Bursa", "Antalya", "Diyarbakır" };
+
+            sehirler2 = sehirler1;
+            sehirler1[0] = "Adana";
+            Console.WriteLine(sehirler2[0]);
+
+            Person person1= new Person();
+            person1.NationalIdentity = 111;
+            person1.FirstName = "FATİH";
+            person1.LastName = "ÇİL";
+            person1.DateOfBirthYear = 1900;
+
+            Person person2 = new Person { FirstName = "Ayşe" };
+
+            foreach (string sehir in sehirler1)
+            { 
+                Console.WriteLine(sehir);
+            }
+
+            List<string> yeniSehirler=new List<string> { "Konya","Niğde","Trabzon"};
+            yeniSehirler.Add("Kastamonu");
+            foreach (string sehir in yeniSehirler)
+            {
+                Console.WriteLine(sehir);
+
+            }
+
+
+            PttManager pttManager = new PttManager(new PersonManager());
+            pttManager.GiveMask(person1);
 
         }
 
