@@ -63,6 +63,7 @@ namespace Workaround
                 Console.WriteLine(sehir);
 
             }
+            Console.WriteLine("-----------------------");
 
             //TC vatandaşı personel
             PttManager pttManager = new PttManager(new PersonManager());
