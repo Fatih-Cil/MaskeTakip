@@ -8,8 +8,26 @@ namespace Workaround
         static void Main(string[] args)
         {
             //Degiskenler();
-            Vatandas vatandas1 = new Vatandas();
-            
+            //Vatandas vatandas1 = new Vatandas();
+            SelamVer("fatih");
+            SelamVer("mehmet");
+            SelamVer();
+            int sonuc = Topla(4,3);
+            Console.WriteLine("Toplam:"+sonuc);
+
+
+        }
+
+
+        static void SelamVer(string ad="?")
+        {
+            Console.WriteLine("Merhaba "+ad);
+        }
+
+        static int Topla(int x=0,int y=0)
+        {
+            int sonuc = x + y;
+            return sonuc;
         }
 
         static void Degiskenler()
