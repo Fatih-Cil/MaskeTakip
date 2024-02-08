@@ -19,8 +19,11 @@ namespace Business.Concrete
 
         public void GiveMask(Person person)
         {
-           
-            if (_service.CheckPerson(person)) {
+            if (person == null)
+            {
+                Console.WriteLine("Personel bilgisi gelmediği için işlem yapılamadı.");
+                
+            }else if (_service.CheckPerson(person)) {
                 Console.WriteLine(person.FirstName + " için maske verildi");
             }
             else

@@ -46,6 +46,11 @@ namespace Workaround
 
             Person person2 = new Person {NationalIdentity=1,FirstName = "JOE",LastName="BIDEN",DateOfBirthYear=1942};
 
+
+
+            Person person3 = new Person();
+            person3 = null;
+
             foreach (string sehir in sehirler1)
             { 
                 Console.WriteLine(sehir);
@@ -59,12 +64,17 @@ namespace Workaround
 
             }
 
-
+            //TC vatandaşı personel
             PttManager pttManager = new PttManager(new PersonManager());
             pttManager.GiveMask(person1);
 
+            //Yabancı uyruklu vatandaşlar için (verilmeyecek)
             PttManager pttManager2 = new PttManager(new ForeignerManager());
             pttManager.GiveMask(person2);
+
+            //Null bir değer gönderiyorum.
+            PttManager pttManager3 = new PttManager(new PersonManager());
+            pttManager.GiveMask(person3);
         }
 
 

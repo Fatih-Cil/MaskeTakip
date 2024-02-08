@@ -11,6 +11,11 @@ namespace Business.Concrete
 {
     public class PersonManager: IApplicantService
     {
+        private readonly KPSPublicSoapClient _client;
+        public PersonManager()
+        {
+            _client=new KPSPublicSoapClient(KPSPublicSoapClient.EndpointConfiguration.KPSPublicSoap);
+        }
         public void ApplyForMask(Person person)
         {
 
@@ -24,8 +29,9 @@ namespace Business.Concrete
 
         public bool CheckPerson(Person person)
         {
-            KPSPublicSoapClient client = new KPSPublicSoapClient(KPSPublicSoapClient.EndpointConfiguration.KPSPublicSoap);
-            return client.TCKimlikNoDogrulaAsync(new TCKimlikNoDogrulaRequest(new TCKimlikNoDogrulaRequestBody(person.NationalIdentity,person.FirstName,person.LastName,person.DateOfBirthYear))).Result.Body.TCKimlikNoDogrulaResult;
+            
+           
+            return _client.TCKimlikNoDogrulaAsync(new TCKimlikNoDogrulaRequest(new TCKimlikNoDogrulaRequestBody(person.NationalIdentity,person.FirstName,person.LastName,person.DateOfBirthYear))).Result.Body.TCKimlikNoDogrulaResult;
         }
     }
 }
